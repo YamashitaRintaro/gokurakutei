@@ -50,3 +50,11 @@ $(function(){
     });
 });
 
+AOS.init({
+  offset: 120,
+  delay: 100,
+  duration: 700,
+  easing: 'ease-in',
+  once: true,
+});
+
