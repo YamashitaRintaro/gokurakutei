@@ -53,8 +53,37 @@ $(function(){
 AOS.init({
   offset: 120,
   delay: 100,
-  duration: 700,
+  duration: 300,
   easing: 'ease-in',
   once: true,
 });
 
+// トップに戻るボタン
+$(function(){
+  var pagetop = $('#page-top');
+  pagetop.hide();
+  $(window).scroll(function () {
+     if ($(this).scrollTop() > 100) {
+          pagetop.fadeIn();
+     } else {
+          pagetop.fadeOut();
+     }
+  });
+  pagetop.click(function () {
+     $('body, html').animate({ scrollTop: 0 }, 500);
+     return false;
+  });
+});
+
+
+// ローディング画面
+$(window).on('load',function(){
+  // $("#js-loader").fadeOut(); これだけでOK
+
+  // codepen用
+  function loaderClose(){
+    $("#js-loader").fadeOut();
+  }
+  setTimeout(loaderClose, 1000);
+  
+});
